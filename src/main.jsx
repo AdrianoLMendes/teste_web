@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client'
 import Login from './pages/login/login.jsx'
 import Register from './pages/register/register.jsx'
 import ErrorPage from './pages/errorPage/error-page.jsx'
+import Home from './home.jsx'
 
 import {
   createBrowserRouter,
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path:"register",
     element:<Register/>
+  },
+  {
+    path:"home",
+    element:<Home/>
   }
 ]);
 
