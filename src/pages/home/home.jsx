@@ -23,7 +23,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { CardActionArea, Container } from "@mui/material";
-import Grid from '@mui/material/Unstable_Grid2';
+import Grid from "@mui/material/Unstable_Grid2";
 
 const drawerWidth = 180;
 
@@ -127,7 +127,7 @@ export default function PersistentDrawerLeft() {
         </DrawerHeader>
         <Divider />
         <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+          {["Inbox", "Starred"].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
@@ -149,8 +149,8 @@ export default function PersistentDrawerLeft() {
               spacing={{ xs: 2, md: 3 }}
               columns={{ xs: 4, sm: 8, md: 12 }}
             >
-              <Grid item xs={6}>
-                <Card sx={{ maxWidth: 380 }}>
+              <Grid xs={2} sm={4} md={4}>
+                <Card sx={{ maxWidth: 480 }}>
                   <CardActionArea>
                     <CardContent>
                       <Typography gutterBottom variant="h5" component="div">
@@ -166,8 +166,25 @@ export default function PersistentDrawerLeft() {
                 </Card>
               </Grid>
 
-              <Grid item xs={6}>
-                <Card sx={{ maxWidth: 380 }}>
+              <Grid xs={2} sm={4} md={4}>
+                <Card sx={{ maxWidth: 480 }}>
+                  <CardActionArea>
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        Lizard
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        Lizards are a widespread group of squamate reptiles,
+                        with over 6,000 species, ranging across all continents
+                        except Antarctica
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Grid>
+
+              <Grid xs={2} sm={4} md={4}>
+                <Card sx={{ maxWidth: 480 }}>
                   <CardActionArea>
                     <CardContent>
                       <Typography gutterBottom variant="h5" component="div">
