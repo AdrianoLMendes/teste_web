@@ -6,8 +6,6 @@ import Register from "./pages/register/register.jsx";
 import ErrorPage from "./pages/errorPage/error-page.jsx";
 import Home from "./pages/home/home.jsx";
 
-import Data from "./pages/data/data.jsx";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -23,10 +21,6 @@ const router = createBrowserRouter([
   {
     path: "home",
     element: <Home />,
-  },
-  {
-    path: "data",
-    element: <Data />,
   },
 ]);
 
