@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+//PAGES
 import Login from "./pages/login/login.jsx";
 import Register from "./pages/register/register.jsx";
 import ErrorPage from "./pages/errorPage/error-page.jsx";
