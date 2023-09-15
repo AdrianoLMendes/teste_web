@@ -19,11 +19,14 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
-import Grid from '@mui/material/Grid';
 import { Container } from "@mui/material";
 
 //BUSCA OS DADOS DA API
 //import api from "../../services/api";
+
+//FORM
+import TextField from "@mui/material/TextField";
+import MenuItem from '@mui/material/MenuItem';
 
 const drawerWidth = 180;
 
@@ -141,12 +144,20 @@ export default function PersistentDrawerLeft() {
       <Main open={open}>
         <DrawerHeader />
         <Container>
-          <Box sx={{ flexGrow: 1 }}>
-            <Grid
-              container
-              spacing={{ xs: 2, md: 3 }}
-              columns={{ xs: 4, sm: 8, md: 12 }}
-            ></Grid>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              "& > :not(style)": { m: 1 },
+            }}
+          >
+            <TextField
+              label="Remessa"
+              inputProps={{
+                inputMode: "numeric",
+                pattern: "[0-9]*",
+              }}
+            />
           </Box>
         </Container>
       </Main>
