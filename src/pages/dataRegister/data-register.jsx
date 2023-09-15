@@ -19,6 +19,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
+import { Container } from "@mui/material";
 
 //BUSCA OS DADOS DA API
 //import api from "../../services/api";
@@ -138,7 +139,6 @@ export default function PersistentDrawerLeft() {
       </Drawer>
       <Main open={open}>
         <DrawerHeader />
-
         <Container>
           <Box sx={{ flexGrow: 1 }}>
             <Grid
