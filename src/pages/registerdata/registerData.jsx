@@ -7,9 +7,5 @@ import AppBar from "../../components/appBar/appBar";
 //import { Container } from "@mui/material";
 
 export default function RegisterData() {
-  return (
-    <>
-      <AppBar />
-    </>
-  );
+  return <AppBar />;
 }
