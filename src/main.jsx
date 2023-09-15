@@ -6,6 +6,7 @@ import Login from "./pages/login/login.jsx";
 import Register from "./pages/register/register.jsx";
 import ErrorPage from "./pages/errorPage/error-page.jsx";
 import Home from "./pages/home/home.jsx";
+import RegisterData from "./pages/registerData/registerData.jsx";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: "home",
     element: <Home />,
+  },
+  {
+    path: "registerdata",
+    element: <RegisterData />,
   },
 ]);
 
