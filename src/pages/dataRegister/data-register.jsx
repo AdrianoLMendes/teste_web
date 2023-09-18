@@ -26,7 +26,10 @@ import { Container } from "@mui/material";
 
 //FORM
 import TextField from "@mui/material/TextField";
-import MenuItem from '@mui/material/MenuItem';
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
 const drawerWidth = 180;
 
@@ -77,6 +80,8 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [mes, setMes] = React.useState("");
+  const [ano, setAno] = React.useState("");
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -86,6 +91,13 @@ export default function PersistentDrawerLeft() {
     setOpen(false);
   };
 
+  const handleChange = (event) => {
+    setMes(event.target.value);
+  };
+
+  const handleChange2 = (event) => {
+    setAno(event.target.value);
+  };
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -158,6 +170,42 @@ export default function PersistentDrawerLeft() {
                 pattern: "[0-9]*",
               }}
             />
+            <FormControl sx={{ m: 1, minWidth: 80 }}>
+              <InputLabel id="demo-simple-select-label">Mês</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={mes}
+                label="Mes"
+                onChange={handleChange}
+              >
+                <MenuItem value={1}>JANEIRO</MenuItem>
+                <MenuItem value={2}>FEVEREIRO</MenuItem>
+                <MenuItem value={3}>MARÇO</MenuItem>
+                <MenuItem value={4}>ABRIL</MenuItem>
+                <MenuItem value={5}>MAIO</MenuItem>
+                <MenuItem value={6}>JULHO</MenuItem>
+                <MenuItem value={7}>JULHO</MenuItem>
+                <MenuItem value={8}>AGOSTO</MenuItem>
+                <MenuItem value={8}>SETEMBRO</MenuItem>
+                <MenuItem value={10}>OUTUBRO</MenuItem>
+                <MenuItem value={11}>NOVEMBRO</MenuItem>
+                <MenuItem value={12}>DEZEMBRO</MenuItem>
+              </Select>
+            </FormControl>
+            <FormControl sx={{ m: 1, minWidth: 80 }}>
+              <InputLabel id="demo-simple-select-label">Ano</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={ano}
+                label="Ano"
+                onChange={handleChange2}
+              >
+                <MenuItem value={23}>2023</MenuItem>
+                <MenuItem value={22}>2022</MenuItem>
+              </Select>
+            </FormControl>
           </Box>
         </Container>
       </Main>
