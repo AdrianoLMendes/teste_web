@@ -19,6 +19,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
+import Button from "@mui/material/Button";
 import { Container } from "@mui/material";
 
 //BUSCA OS DADOS DA API
@@ -98,6 +99,16 @@ export default function PersistentDrawerLeft() {
   const handleChange2 = (event) => {
     setAno(event.target.value);
   };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      remessa: data.get("remessa"),
+      quantidade: data.get("quantidade"),
+    });
+  };
+
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -157,6 +168,8 @@ export default function PersistentDrawerLeft() {
         <DrawerHeader />
         <Container>
           <Box
+            component="form"
+            onSubmit={handleSubmit}
             sx={{
               display: "flex",
               alignItems: "center",
@@ -164,11 +177,12 @@ export default function PersistentDrawerLeft() {
             }}
           >
             <TextField
+              required
+              id="outlined-basic"
               label="Remessa"
-              inputProps={{
-                inputMode: "numeric",
-                pattern: "[0-9]*",
-              }}
+              name="remessa"
+              variant="outlined"
+              type="number"
             />
             <FormControl sx={{ m: 1, minWidth: 80 }}>
               <InputLabel id="demo-simple-select-label">Mês</InputLabel>
@@ -206,6 +220,21 @@ export default function PersistentDrawerLeft() {
                 <MenuItem value={22}>2022</MenuItem>
               </Select>
             </FormControl>
+            <TextField
+              id="outlined-number"
+              label="Quantidade"
+              name="quantidade"
+              variant="outlined"
+              type="number"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Salvar
+            </Button>
           </Box>
         </Container>
       </Main>

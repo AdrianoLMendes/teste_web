@@ -19,15 +19,12 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
-
-//BUSCA OS DADOS DA API
-import api from "../../services/api";
-
-//CARDS
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import { CardActionArea, Container } from "@mui/material";
+import { Container } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
+
+//COMPONENT
+import Table from "../../components/table/table";
+
 
 const drawerWidth = 180;
 
@@ -160,35 +157,7 @@ export default function PersistentDrawerLeft() {
               spacing={{ xs: 2, md: 3 }}
               columns={{ xs: 4, sm: 8, md: 12 }}
             >
-              {data &&
-                data.map((dados) => (
-                  <Grid xs={2} sm={4} md={4}>
-                    <Card sx={{ maxWidth: 480 }}>
-                      <CardActionArea>
-                        <CardContent>
-                          <Typography gutterBottom variant="h6" component="div">
-                            Competência: {dados.competencia}
-                          </Typography>
-                          <Typography variant="body2" color="text.secondary">
-                            Remessa: {dados.remessa}
-                          </Typography>
-                          <Typography variant="body2" color="text.secondary">
-                            Quantidade de AIH's digitadas: {dados.quantidade}
-                          </Typography>
-                          <Typography variant="body2" color="text.secondary">
-                            Valor faturado: R$ {dados.valor}
-                          </Typography>
-                          <Typography>
-                            <br></br>
-                          </Typography>
-                          <Typography sx={{ fontSize: 14 }} gutterBottom>
-                            Ano: {dados.ano}
-                          </Typography>
-                        </CardContent>
-                      </CardActionArea>
-                    </Card>
-                  </Grid>
-                ))}
+              <Table />
             </Grid>
           </Box>
         </Container>
