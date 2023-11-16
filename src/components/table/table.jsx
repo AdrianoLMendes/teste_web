@@ -23,14 +23,20 @@ export default function BasicTable() {
 
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="a dense table">
+      <Table sx={{ minWidth: 850 }} aria-label="a dense table">
         <TableHead>
           <TableRow>
-            <TableCell>Remessa</TableCell>
+            <TableCell>Paciente</TableCell>
+            <TableCell align="right">Prontuário</TableCell>
+            <TableCell align="right">Clínica</TableCell>
+            <TableCell align="right">CID</TableCell>
+            <TableCell align="right">Entrada</TableCell>
+            <TableCell align="right">Procedimento</TableCell>
+            <TableCell align="right">Médico Solicitante</TableCell>
             <TableCell align="right">Competência</TableCell>
-            <TableCell align="right">Quantidade</TableCell>
-            <TableCell align="right">Valor</TableCell>
-            <TableCell align="right">Ano</TableCell>
+            <TableCell align="right">Relação</TableCell>
+            <TableCell align="right">Usuário</TableCell>
+            <TableCell align="right">Data</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -41,12 +47,18 @@ export default function BasicTable() {
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
-                  {dados.remessa}
+                  {dados.nome_paciente}
                 </TableCell>
+                <TableCell align="right">{dados.prontuario}</TableCell>
+                <TableCell align="right">{dados.clinica}</TableCell>
+                <TableCell align="right">{dados.cid}</TableCell>
+                <TableCell align="right">{dados.data_entrada}</TableCell>
+                <TableCell align="right">{dados.procedimento}</TableCell>
+                <TableCell align="right">{dados.medico_solicitante}</TableCell>
                 <TableCell align="right">{dados.competencia}</TableCell>
-                <TableCell align="right">{dados.quantidade}</TableCell>
-                <TableCell align="right">{dados.valor}</TableCell>
-                <TableCell align="right">{dados.ano}</TableCell>
+                <TableCell align="right">{dados.relacao}</TableCell>
+                <TableCell align="right">{dados.usuario}</TableCell>
+                <TableCell align="right">{dados.data}</TableCell>
               </TableRow>
             ))}
         </TableBody>

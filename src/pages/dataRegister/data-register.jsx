@@ -20,7 +20,7 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import Button from "@mui/material/Button";
-import { Container } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 
 //BUSCA OS DADOS DA API
 //import api from "../../services/api";
@@ -81,8 +81,16 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const [mes, setMes] = React.useState("");
-  const [ano, setAno] = React.useState("");
+  const [ano, setAno] = React.useState('');
+  const [mes, setMes] = React.useState('');
+
+  const handleMes = (event) => {
+    setMes(event.target.value);
+  };
+
+  const handleAno = (event) => {
+    setAno(event.target.value);
+  };
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -92,20 +100,14 @@ export default function PersistentDrawerLeft() {
     setOpen(false);
   };
 
-  const handleChange = (event) => {
-    setMes(event.target.value);
-  };
-
-  const handleChange2 = (event) => {
-    setAno(event.target.value);
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
       remessa: data.get("remessa"),
       quantidade: data.get("quantidade"),
+      ano,
+      mes
     });
   };
 
@@ -170,71 +172,76 @@ export default function PersistentDrawerLeft() {
           <Box
             component="form"
             onSubmit={handleSubmit}
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              "& > :not(style)": { m: 1 },
-            }}
+            Grid
+            container
+            spacing={{ xs: 2, md: 3 }}
+            columns={{ xs: 4, sm: 8, md: 12 }}
           >
-            <TextField
-              required
-              id="outlined-basic"
-              label="Remessa"
-              name="remessa"
-              variant="outlined"
-              type="number"
-            />
-            <FormControl sx={{ m: 1, minWidth: 80 }}>
-              <InputLabel id="demo-simple-select-label">Mês</InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={mes}
-                label="Mes"
-                onChange={handleChange}
-              >
-                <MenuItem value={1}>JANEIRO</MenuItem>
-                <MenuItem value={2}>FEVEREIRO</MenuItem>
-                <MenuItem value={3}>MARÇO</MenuItem>
-                <MenuItem value={4}>ABRIL</MenuItem>
-                <MenuItem value={5}>MAIO</MenuItem>
-                <MenuItem value={6}>JULHO</MenuItem>
-                <MenuItem value={7}>JULHO</MenuItem>
-                <MenuItem value={8}>AGOSTO</MenuItem>
-                <MenuItem value={8}>SETEMBRO</MenuItem>
-                <MenuItem value={10}>OUTUBRO</MenuItem>
-                <MenuItem value={11}>NOVEMBRO</MenuItem>
-                <MenuItem value={12}>DEZEMBRO</MenuItem>
-              </Select>
-            </FormControl>
-            <FormControl sx={{ m: 1, minWidth: 80 }}>
-              <InputLabel id="demo-simple-select-label">Ano</InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={ano}
-                label="Ano"
-                onChange={handleChange2}
-              >
-                <MenuItem value={23}>2023</MenuItem>
-                <MenuItem value={22}>2022</MenuItem>
-              </Select>
-            </FormControl>
-            <TextField
-              id="outlined-number"
-              label="Quantidade"
-              name="quantidade"
-              variant="outlined"
-              type="number"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+            <Grid
+              container
+              rowSpacing={1}
+              columnSpacing={{ xs: 1, sm: 2, md: 3 }}
             >
-              Salvar
-            </Button>
+              <TextField
+                required
+                id="outlined-basic"
+                label="Remessa"
+                name="remessa"
+                variant="outlined"
+                type="number"
+              />
+              <FormControl sx={{ m: 1, minWidth: 80 }}>
+                <InputLabel id="demo-simple-select-label">Mês</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={mes}
+                  label="Mês"
+                  onChange={handleMes}
+                >
+                  <MenuItem value={'jan'}>JANEIRO</MenuItem>
+                  <MenuItem value={'fev'}>FEVEREIRO</MenuItem>
+                  <MenuItem value={'mar'}>MARÇO</MenuItem>
+                  <MenuItem value={'abr'}>ABRIL</MenuItem>
+                  <MenuItem value={'mai'}>MAIO</MenuItem>
+                  <MenuItem value={'jun'}>JUNHO</MenuItem>
+                  <MenuItem value={'jul'}>JULHO</MenuItem>
+                  <MenuItem value={'ago'}>AGOSTO</MenuItem>
+                  <MenuItem value={'set'}>SETEMBRO</MenuItem>
+                  <MenuItem value={'out'}>OUTUBRO</MenuItem>
+                  <MenuItem value={'nov'}>NOVEMBRO</MenuItem>
+                  <MenuItem value={'dez'}>DEZEMBRO</MenuItem>
+                </Select>
+              </FormControl>
+              <FormControl sx={{ m: 1, minWidth: 80 }}>
+                <InputLabel id="demo-simple-select-label">Ano</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={ano}
+                  label="Ano"
+                  onChange={handleAno}
+                >
+                  <MenuItem value={23}>2023</MenuItem>
+                  <MenuItem value={22}>2022</MenuItem>
+                </Select>
+              </FormControl>
+              <TextField
+                id="outlined-number"
+                label="Quantidade"
+                name="quantidade"
+                variant="outlined"
+                type="number"
+              />
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Salvar
+              </Button>
+            </Grid>
           </Box>
         </Container>
       </Main>
