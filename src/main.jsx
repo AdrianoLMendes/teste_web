@@ -6,7 +6,7 @@ import Login from "./pages/login/login.jsx";
 import Register from "./pages/register/register.jsx";
 import ErrorPage from "./pages/errorPage/error-page.jsx";
 import Home from "./pages/home/home.jsx";
-import DataRegister from "./pages/dataRegister/data-register.jsx";
+import DataRegister from "./pages/dataRegister/dataRegister.jsx";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 

@@ -17,14 +17,17 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+
+//ICONS
+import AssignmentIcon from "@mui/icons-material/Assignment";
+import ContentPasteSearchIcon from "@mui/icons-material/ContentPasteSearch";
+
 import { Container } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
+import { Link } from "react-router-dom";
 
 //COMPONENT
-import Table from "../../components/table/table";
-
+//import Table from "../../components/table/table";
 
 const drawerWidth = 180;
 
@@ -135,20 +138,21 @@ export default function PersistentDrawerLeft() {
         </DrawerHeader>
         <Divider />
         <List>
-          {["Inbox", "Starred"].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
+          <ListItemButton href="/dataRegister">
+            <ListItemIcon sx={{ color: "#7faf68" }}>
+              <AssignmentIcon />
+            </ListItemIcon>
+            <ListItemText primary="Cadastrar" />
+          </ListItemButton>
+          <ListItemButton>
+            <ListItemIcon sx={{ color: "#ba114e" }}>
+              <ContentPasteSearchIcon />
+            </ListItemIcon>
+            <ListItemText primary="Procurar" />
+          </ListItemButton>
         </List>
       </Drawer>
       <Main open={open}>
-        
         <DrawerHeader />
 
         <Container>
@@ -157,9 +161,7 @@ export default function PersistentDrawerLeft() {
               container
               spacing={{ xs: 2, md: 3 }}
               columns={{ xs: 4, sm: 8, md: 12 }}
-            >
-              <Table />
-            </Grid>
+            ></Grid>
           </Box>
         </Container>
       </Main>
